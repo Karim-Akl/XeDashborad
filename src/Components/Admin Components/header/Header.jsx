@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./header.css";
-import adminImage from "../../../images/admin-photo.png";
-import logo from "../../../images/Logo.png";
 const Header = () => {
   const [sidebarVisible, setSidebarVisible] = useState(true);
   let name = JSON.parse(localStorage.getItem("user"))?.name || "Admin";

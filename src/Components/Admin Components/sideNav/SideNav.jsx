@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import "./sideNav.css";
-import logo from "../../../images/Logo.png";
-import userImage from "../../../images/user-photo.jpg";
 const SideNav = ({ isSidebarOpen }) => {
   const navigate = useNavigate();
   // const [isSidebarOpen, setIsSidebarOpen] = useState(true); // State to manage sidebar visibility
@@ -21,7 +19,7 @@ const SideNav = ({ isSidebarOpen }) => {
               {/* <Link className="navbar-brand brand-logo-mini" to="#"><img src={logo} alt="logo" /></Link> */}
               <Link className="navbar-brand brand-logo" to="#">
                 <img
-                  src="https://xealkhalej.com/wp-content/uploads/2024/02/logo.webp"
+                  src="/assets/images/logo.059c021ca4a59b861ff3.webp"
                   alt="logo"
                   style={{
                     width: "100%",
