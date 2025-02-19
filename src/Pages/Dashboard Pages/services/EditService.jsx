@@ -48,12 +48,14 @@ const EditService = () => {
         })),
       });
       setOldImage(
-        service.image ? `https://xealkhalej-backend.alwajez.com/${service.image}` : null
+        service.image
+          ? `https://xealkhalej-backend.alwajez.com/${service.image}`
+          : null
       );
     }
   }, [service, isLoading]);
   useEffect(() => {
-    document.body.classList.remove("sidebar-icon-only") // Close sidebar on page change
+    document.body.classList.remove("sidebar-icon-only"); // Close sidebar on page change
   }, []);
   const handleChange = (e) => {
     const { name, value, files } = e.target;
@@ -173,7 +175,7 @@ const EditService = () => {
                   <div className="row">
                     {/* Country Field */}
                     <div className="form-group col-sm-6">
-                      <label htmlFor="country_id">اختر الدولة</label>
+                      <label htmlFor="country_id"> اختر cv</label>
                       <select
                         className="form-control"
                         name="country_id"
@@ -182,7 +184,7 @@ const EditService = () => {
                         required
                       >
                         <option value="" disabled>
-                          اختر الدولة
+                          اختر cv
                         </option>
                         {countries &&
                           countries.map((country) => (

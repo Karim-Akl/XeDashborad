@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const AddCountriesForm = ({ onSubmit ,initialData }) => {
+const AddCountriesForm = ({ onSubmit, initialData }) => {
   const [formData, setFormData] = useState({
     name: initialData?.name || "",
     image: "",
@@ -47,7 +47,11 @@ const AddCountriesForm = ({ onSubmit ,initialData }) => {
     }
   };
   return (
-    <form className="forms-sample" onSubmit={handleSubmit} enctype="multipart/form-data">
+    <form
+      className="forms-sample"
+      onSubmit={handleSubmit}
+      enctype="multipart/form-data"
+    >
       <div className="form-group col-sm-12 ">
         <div className="row">
           <div className="col-sm-6 my-2">
@@ -83,15 +87,15 @@ const AddCountriesForm = ({ onSubmit ,initialData }) => {
                 style={{ height: "100px", width: "100px" }}
               />
             )}
-          {initialData && initialData.image && !formData.image && (
-            <img
-              src={`https://xealkhalej-backend.alwajez.com/${initialData.image}`}
-              alt={initialData.name}
-              className="img-fluid mt-2"
-              style={{ height: "100px", width: "100px" }}
-            />
-          )}
-            
+            {initialData && initialData.image && !formData.image && (
+              <img
+                src={`https://xealkhalej-backend.alwajez.com/${initialData.image}`}
+                alt={initialData.name}
+                className="img-fluid mt-2"
+                style={{ height: "100px", width: "100px" }}
+              />
+            )}
+
             {error.image && <p className="text-danger">{error.image}</p>}
           </div>
         </div>

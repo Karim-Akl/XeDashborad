@@ -48,9 +48,9 @@ const AllCountries = () => {
         setShowPopup(false); // Reset editing state
       } else {
         // Create a new country
-        try{
+        try {
           await createCountry(formDataToSend).unwrap();
-        } catch (error){
+        } catch (error) {
           console.log(error);
         }
       }
@@ -62,7 +62,6 @@ const AllCountries = () => {
   };
 
   const handleEditCountry = (country) => {
-
     setEditingCountry(country); // Set country to be edited
     setShowPopup(true);
   };
@@ -91,7 +90,7 @@ const AllCountries = () => {
     });
   };
   useEffect(() => {
-    document.body.classList.remove("sidebar-icon-only") // Close sidebar on page change
+    document.body.classList.remove("sidebar-icon-only"); // Close sidebar on page change
   }, []);
   return (
     <div>
@@ -100,15 +99,15 @@ const AllCountries = () => {
         <SideNav isSidebarOpen={isSidebarOpen} />
         <div className="add_user_container">
           <div style={{ marginTop: "30px" }}>
-            <PageHeader name="كل البلاد" icon="fa fa-globe" />
+            <PageHeader name="كل الخدمات" icon="fa fa-globe" />
           </div>
           <div className="add-country">
             <button
               className="btn add-btn btn-gradient-primary"
               onClick={() => setShowPopup(true)}
             >
-              اضافة بلد جديد{"  "}
-              <i className="fa fa-plus" aria-hidden="true"></i> 
+              اضافة خدمه جديد{"  "}
+              <i className="fa fa-plus" aria-hidden="true"></i>
             </button>
           </div>
           {showPopup && (
@@ -121,8 +120,7 @@ const AllCountries = () => {
                   &times;
                 </button>
                 <h4 className="card-title mb-4">
-                  {editingCountry ? "تعديل الدولة" : "نموذج اضافة بلد جديد"}
-
+                  {editingCountry ? "تعديل الدولة" : "نموذج اضافة خدمه جديد"}
                 </h4>
                 <AddCountriesForm
                   onSubmit={handleFormSubmit}
@@ -141,7 +139,7 @@ const AllCountries = () => {
                       className="fa fa-angle-double-left"
                       aria-hidden="true"
                     ></i>
-                    كل البلاد
+                    كل الخدمات
                     <i
                       className="fa fa-angle-double-right"
                       aria-hidden="true"

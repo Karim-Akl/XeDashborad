@@ -11,7 +11,10 @@ const SideNav = ({ isSidebarOpen }) => {
 
   return (
     <div>
-      <nav className={isSidebarOpen ? "sidebar" : "hidden sidebar"} id="sidebar">
+      <nav
+        className={isSidebarOpen ? "sidebar" : "hidden sidebar"}
+        id="sidebar"
+      >
         <ul className="nav">
           <li className="nav-item nav-profile mt-2">
             <NavLink className="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
@@ -30,9 +33,7 @@ const SideNav = ({ isSidebarOpen }) => {
                 />
               </Link>
             </NavLink>
-           
           </li>
-          
 
           <li className="nav-item">
             <Link
@@ -43,9 +44,13 @@ const SideNav = ({ isSidebarOpen }) => {
               aria-controls="ui-basic"
             >
               <div>
-                <i class="fa fa-globe" aria-hidden="true" onClick={() => navigate("/admin/all-countries")}></i>
+                <i
+                  class="fa fa-globe"
+                  aria-hidden="true"
+                  onClick={() => navigate("/admin/all-countries")}
+                ></i>
                 <span className="menu-title" style={{ fontWeight: "700" }}>
-                  البلاد
+                  الخدمات
                 </span>
               </div>
               <i className="menu-arrow" style={{ marginRight: "75px" }} />
@@ -54,13 +59,13 @@ const SideNav = ({ isSidebarOpen }) => {
               <ul className="nav flex-column sub-menu">
                 <li className="nav-item">
                   <Link className="nav-link" to="/admin/all-countries">
-                    كل البلاد
+                    كل الخدمات
                   </Link>
                 </li>
               </ul>
             </div>
           </li>
-          
+
           <li className="nav-item">
             <Link
               className="nav-link justify-content-between"
@@ -70,9 +75,13 @@ const SideNav = ({ isSidebarOpen }) => {
               aria-controls="ui-basic"
             >
               <div>
-                <i class="fa fa-cogs" aria-hidden="true" onClick={() => navigate("/admin/services")}></i>
+                <i
+                  class="fa fa-cogs"
+                  aria-hidden="true"
+                  onClick={() => navigate("/admin/services")}
+                ></i>
                 <span className="menu-title" style={{ fontWeight: "700" }}>
-                  الخدمات
+                  CV
                 </span>
               </div>
               <i className="menu-arrow" style={{ marginRight: "75px" }} />
@@ -81,15 +90,14 @@ const SideNav = ({ isSidebarOpen }) => {
               <ul className="nav flex-column sub-menu">
                 <li className="nav-item">
                   <Link className="nav-link" to="/admin/services">
-                    كل الخدمات
+                    كل CV
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/admin/add-service">
-                     اضافة خدمة
+                    اضافة CV
                   </Link>
                 </li>
-
               </ul>
             </div>
           </li>
@@ -102,7 +110,11 @@ const SideNav = ({ isSidebarOpen }) => {
               aria-controls="ui-basic"
             >
               <div>
-                <i class="fa fa-book" aria-hidden="true" onClick={() => navigate("/admin/bookings")}></i>
+                <i
+                  class="fa fa-book"
+                  aria-hidden="true"
+                  onClick={() => navigate("/admin/bookings")}
+                ></i>
                 <span className="menu-title" style={{ fontWeight: "700" }}>
                   الحجوزات
                 </span>
@@ -118,10 +130,9 @@ const SideNav = ({ isSidebarOpen }) => {
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/admin/add-booking">
-                     اضافة حجز
+                    اضافة حجز
                   </Link>
                 </li>
-
               </ul>
             </div>
           </li>
@@ -134,7 +145,11 @@ const SideNav = ({ isSidebarOpen }) => {
               aria-controls="ui-basic"
             >
               <div>
-                <i class="fa fa-book" aria-hidden="true" onClick={() => navigate("/admin/faqs")}></i>
+                <i
+                  class="fa fa-book"
+                  aria-hidden="true"
+                  onClick={() => navigate("/admin/faqs")}
+                ></i>
                 <span className="menu-title" style={{ fontWeight: "700" }}>
                   الاسئلة الشائعة
                 </span>
@@ -150,35 +165,34 @@ const SideNav = ({ isSidebarOpen }) => {
                 </li>
                 <li className="nav-item">
                   <Link className="nav-link" to="/admin/add-faq">
-                     اضافة سؤال
+                    اضافة سؤال
                   </Link>
                 </li>
-
               </ul>
             </div>
           </li>
           <li className="nav-item">
-              <Link to={'/admin/transactions'} className="nav-link">
-                <i class="fa fa-money" aria-hidden="true"></i>
-                <span className="menu-title" style={{ fontWeight: "700" }}>
-                  المعاملات
-                </span>
-              </Link>
+            <Link to={"/admin/transactions"} className="nav-link">
+              <i class="fa fa-money" aria-hidden="true"></i>
+              <span className="menu-title" style={{ fontWeight: "700" }}>
+                المعاملات
+              </span>
+            </Link>
           </li>
           <li className="nav-item">
-              <Link to={'/admin/messages'} className="nav-link">
-                <i class="fa fa-envelope" aria-hidden="true"></i>
-                <span className="menu-title" style={{ fontWeight: "700" }}>
-                  الرسائل
-                </span>
-              </Link>
+            <Link to={"/admin/messages"} className="nav-link">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <span className="menu-title" style={{ fontWeight: "700" }}>
+                الرسائل
+              </span>
+            </Link>
           </li>
           <li className="nav-item" onClick={() => handleLogout()}>
-            <Link className="nav-link" to="/login" >
-            <i className="fa fa-sign-out" aria-hidden="true" />
-            <span className="menu-title" style={{ fontWeight: "700" }}>
-              تسجيل الخروج
-            </span>
+            <Link className="nav-link" to="/login">
+              <i className="fa fa-sign-out" aria-hidden="true" />
+              <span className="menu-title" style={{ fontWeight: "700" }}>
+                تسجيل الخروج
+              </span>
             </Link>
           </li>
         </ul>

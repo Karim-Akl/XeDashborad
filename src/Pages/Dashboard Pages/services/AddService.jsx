@@ -18,18 +18,19 @@ const AddService = () => {
       { title: "", description: "" },
       { title: "", description: "" },
       { title: "", description: "" },
-      { title: "", description: "" }
-    ]
+      { title: "", description: "" },
+    ],
   });
   const [imagePreview, setImagePreview] = useState(null);
-  const [createService,  {isSuccess, error:createError} ] = useCreateServiceMutation();
-  const [error , setError] = useState({})
+  const [createService, { isSuccess, error: createError }] =
+    useCreateServiceMutation();
+  const [error, setError] = useState({});
   const { data: countries, isLoading } = useGetCountriesQuery();
   useEffect(() => {
-    document.body.classList.remove("sidebar-icon-only") // Close sidebar on page change
+    document.body.classList.remove("sidebar-icon-only"); // Close sidebar on page change
   }, []);
   const handleChange = (e) => {
-    if (e.target.type === 'file') {
+    if (e.target.type === "file") {
       const file = e.target.files[0];
       setFormData({ ...formData, image: file });
 
@@ -50,25 +51,27 @@ const AddService = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const formDataToSend = new FormData();
     Object.keys(formData).forEach((key) => {
       if (key === "features") {
         formData.features.forEach((feature, index) => {
           formDataToSend.append(`features[${index}][title]`, feature.title);
-          formDataToSend.append(`features[${index}][description]`, feature.description);
+          formDataToSend.append(
+            `features[${index}][description]`,
+            feature.description
+          );
         });
       } else {
         formDataToSend.append(key, formData[key]);
       }
     });
-    try{
+    try {
       await createService(formDataToSend).unwrap();
       navigate("/admin/services");
-    }catch(err){
-      setError(err)
+    } catch (err) {
+      setError(err);
     }
-    
   };
 
   return (
@@ -91,14 +94,13 @@ const AddService = () => {
                 </p>
                 {error?.data?.errors?.length > 0 && (
                   <>
-                  
                     {error.data.errors.map((error, index) => (
-                    <div className="alert alert-danger">
+                      <div className="alert alert-danger">
                         <p key={index}>{error}</p>
-                        </div>
+                      </div>
                     ))}
                   </>
-                  )}
+                )}
                 <form className="forms-sample" onSubmit={handleSubmit}>
                   <div className="form-group col-sm-12">
                     <div className="row">
@@ -140,10 +142,16 @@ const AddService = () => {
                           onChange={handleChange}
                           name="image"
                         />
-                        {imagePreview && <img src={imagePreview} alt="Preview" style={{ width: '100px', marginTop: '10px' }} />}
+                        {imagePreview && (
+                          <img
+                            src={imagePreview}
+                            alt="Preview"
+                            style={{ width: "100px", marginTop: "10px" }}
+                          />
+                        )}
                       </div>
                       <div className="col-sm-6">
-                        <label htmlFor="country_id"> اختر الدولة </label>
+                        <label htmlFor="country_id"> اختر cv</label>
                         <select
                           dir="ltr"
                           className="form-control form-select"
@@ -152,7 +160,7 @@ const AddService = () => {
                           name="country_id"
                         >
                           <option value="" disabled>
-                            اختر الدولة
+                            اختر cv
                           </option>
                           {countries &&
                             countries.map((country) => (
@@ -179,7 +187,9 @@ const AddService = () => {
                   {formData.features.map((feature, index) => (
                     <div key={index} className="form-group row">
                       <div className="col-sm-6">
-                        <label htmlFor={`feature_title_${index + 1}`}>الميزة {index + 1}</label>
+                        <label htmlFor={`feature_title_${index + 1}`}>
+                          الميزة {index + 1}
+                        </label>
                         <input
                           type="text"
                           className="form-control"
@@ -191,7 +201,9 @@ const AddService = () => {
                         />
                       </div>
                       <div className="col-sm-6">
-                        <label htmlFor={`feature_desc_${index + 1}`}>وصف الميزة {index + 1}</label>
+                        <label htmlFor={`feature_desc_${index + 1}`}>
+                          وصف الميزة {index + 1}
+                        </label>
                         <textarea
                           className="form-control"
                           id={`feature_desc_${index + 1}`}
@@ -205,7 +217,10 @@ const AddService = () => {
                   ))}
 
                   <div className="d-flex justify-content-center gap-2">
-                    <button type="submit" className="btn btn-gradient-primary me-2">
+                    <button
+                      type="submit"
+                      className="btn btn-gradient-primary me-2"
+                    >
                       {"انشاء"}
                     </button>
                     <button
